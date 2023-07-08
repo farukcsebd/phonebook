@@ -18,7 +18,7 @@ use App\Http\Controllers\ContactController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/add-contact','create');
+// Route::get('/add-contact','create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,3 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+ 
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/add-contact', 'create');
+});
