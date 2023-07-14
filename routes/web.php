@@ -38,3 +38,4 @@ require __DIR__.'/auth.php';
 // });
 Route::resource('contact', ContactController::class)->middleware(['auth', 'verified']);
 
+Route::get('/search', [ContactController::class, 'search'])->name('search');
