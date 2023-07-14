@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
  
-Route::controller(ContactController::class)->group(function () {
-    Route::get('/add-contact', 'create');
-});
+// Route::controller(ContactController::class)->group(function () {
+//     Route::get('/add-contact', 'create');
+// });
+Route::resource('contact', ContactController::class)->middleware(['auth', 'verified']);
+
